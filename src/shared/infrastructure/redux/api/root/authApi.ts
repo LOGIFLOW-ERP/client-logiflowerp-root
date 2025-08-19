@@ -11,7 +11,7 @@ import {
 import { instanceToPlain } from 'class-transformer'
 
 const schema = 'processes'
-const resource = 'rootauth'
+const resource = 'auth'
 
 const path = `${schema}/${resource}`
 

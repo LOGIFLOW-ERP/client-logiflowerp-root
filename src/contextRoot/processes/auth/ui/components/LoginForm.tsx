@@ -1,4 +1,4 @@
-import { Button, CircularProgress, TextField } from '@mui/material'
+import { Box, Button, CircularProgress, Divider, Link, TextField } from '@mui/material'
 import { useNavigate } from 'react-router-dom'
 import { useForm } from 'react-hook-form'
 import { classValidatorResolver } from '@hookform/resolvers/class-validator'
@@ -26,11 +26,13 @@ export function LoginForm() {
             const {
                 user,
                 company,
+                dataSystemOptions
             } = await signIn(data).unwrap()
             setState({
                 isAuthenticated: true,
                 user,
                 company,
+                dataSystemOptions
             })
             navigate('/')
         } catch (error: any) {
@@ -79,6 +81,25 @@ export function LoginForm() {
                         : 'Iniciar sesión'
                 }
             </Button>
+            <Divider sx={{ marginTop: 2, marginBottom: 2 }} />
+            <Box sx={{ textAlign: 'center' }}>
+                <Link
+                    variant='body2'
+                    color='primary'
+                    sx={{ display: 'block', marginBottom: 1, cursor: 'pointer' }}
+                    onClick={() => navigate('/sign-up')}
+                >
+                    ¿No tienes cuenta? Regístrate
+                </Link>
+                <Link
+                    variant='body2'
+                    color='primary'
+                    sx={{ cursor: 'pointer' }}
+                    onClick={() => navigate('/request-password-reset')}
+                >
+                    ¿Olvidaste tu contraseña?
+                </Link>
+            </Box>
         </form>
     )
 }
