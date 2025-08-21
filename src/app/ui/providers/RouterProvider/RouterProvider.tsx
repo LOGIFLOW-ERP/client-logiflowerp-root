@@ -5,6 +5,7 @@ import { protectedLoader, publicLoader } from '@app/application'
 import { buildRoutes } from './index'
 
 const LayoutAuth = lazy(() => import('../../../../contextRoot/processes/auth/ui/pages/LayoutAuth').then(mo => ({ default: mo.LayoutAuth })))
+const VerifyEmail = lazy(() => import('../../../../contextRoot/processes/auth/ui/pages/VerifyEmail').then(mo => ({ default: mo.VerifyEmail })))
 const ResetPassword = lazy(() => import('../../../../contextRoot/processes/auth/ui/pages/ResetPassword').then(mo => ({ default: mo.ResetPassword })))
 const LoginForm = lazy(() => import('../../../../contextRoot/processes/auth/ui/components/LoginForm').then(mo => ({ default: mo.LoginForm })))
 const SignUpForm = lazy(() => import('../../../../contextRoot/processes/auth/ui/components/SignUpForm').then(mo => ({ default: mo.SignUpForm })))
@@ -40,6 +41,10 @@ const router = createBrowserRouter([
                                 Component: RequestPasswordResetForm
                             },
                         ]
+                    },
+                    {
+                        path: 'verify-email',
+                        Component: VerifyEmail
                     },
                     {
                         path: 'reset-password',
