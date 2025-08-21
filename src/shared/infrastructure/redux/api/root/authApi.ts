@@ -27,6 +27,14 @@ export const authApi = baseApi.injectEndpoints({
             }),
             transformErrorResponse
         }),
+        verifyEmail: builder.mutation<void, { token: string }>({
+            query: (body) => ({
+                url: `/${schema}/${resource}/verify-email`,
+                method: 'POST',
+                body,
+            }),
+            transformErrorResponse
+        }),
         requestPasswordReset: builder.mutation<void, RequestPasswordResetDTO>({
             query: (body) => ({
                 url: `/${schema}/${resource}/request-password-reset`,
@@ -79,6 +87,7 @@ export const authApi = baseApi.injectEndpoints({
 
 export const {
     useSignUpMutation,
+    useVerifyEmailMutation,
     useRequestPasswordResetMutation,
     useResetPasswordMutation,
     useSignInMutation,
