@@ -13,6 +13,8 @@ interface IParams {
     setRowModesModel: React.Dispatch<React.SetStateAction<GridRowModesModel>>
     rows: readonly GridValidRowModel[]
     setRows: React.Dispatch<React.SetStateAction<readonly GridValidRowModel[]>>
+    buttonDelete?: boolean
+    buttonEdit?: boolean
 }
 
 export const columnsScrapingTargets = (params: IParams): GridColDef<ScrapingCredentialDTO>[] => {
