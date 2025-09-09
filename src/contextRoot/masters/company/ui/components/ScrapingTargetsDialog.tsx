@@ -22,7 +22,7 @@ export function ScrapingTargetsDialog(props: Props) {
 
 	const handleDeleteClick = (id: GridRowId) => async () => {
 		try {
-			setScrapingTargets(scrapingTargets.filter((row) => row.url !== id))
+			setScrapingTargets(scrapingTargets.filter((row) => row._id !== id))
 			enqueueSnackbar({ message: '¡Eliminado 🚀!', variant: 'info' })
 		} catch (error: any) {
 			console.error(error)
@@ -34,7 +34,7 @@ export function ScrapingTargetsDialog(props: Props) {
 		try {
 			const updatedRow = { ...newRow, isNew: false }
 			await validateCustom(newRow, ScrapingCredentialDTO, Error)
-			setScrapingTargets(scrapingTargets.map((row) => (row.url === newRow.url ? newRow : row)))
+			setScrapingTargets(scrapingTargets.map((row) => (row._id === newRow._id ? newRow : row)))
 			enqueueSnackbar({ message: '¡Éxito 🚀!', variant: 'success' })
 			return updatedRow
 		} catch (error: any) {
@@ -60,11 +60,13 @@ export function ScrapingTargetsDialog(props: Props) {
 					rowModesModel,
 					setRowModesModel,
 					rows: scrapingTargets,
-					setRows: setScrapingTargets
+					setRows: setScrapingTargets,
+					buttonDelete: true,
+					buttonEdit: true
 				})}
 				newRowTemplate={newRowTemplate}
 				processRowUpdate={processRowUpdate}
-				getRowId={(row) => row.url}
+				buttonCreate
 			/>
 		</CustomDialog>
 	)
