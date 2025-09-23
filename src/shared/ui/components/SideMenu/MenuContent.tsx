@@ -3,26 +3,14 @@ import { List, ListItem, ListItemButton, ListItemIcon, ListItemText, Stack } fro
 import InfoRoundedIcon from '@mui/icons-material/InfoRounded';
 // import HelpRoundedIcon from '@mui/icons-material/HelpRounded';
 // import PersonRounded from '@mui/icons-material/PersonRounded'
-import TransformRounded from '@mui/icons-material/TransformRounded'
-import CategoryRounded from '@mui/icons-material/CategoryRounded'
-import MonetizationOnRounded from '@mui/icons-material/MonetizationOnRounded'
-import LocalOfferRounded from '@mui/icons-material/LocalOfferRounded'
-import ScaleRounded from '@mui/icons-material/ScaleRounded'
 import HelpOutline from '@mui/icons-material/HelpOutline'
-import LocalConvenienceStoreRounded from '@mui/icons-material/LocalConvenienceStoreRounded'
 import BusinessRoundedIcon from '@mui/icons-material/BusinessRounded'
-import AdminPanelSettingsRoundedIcon from '@mui/icons-material/AdminPanelSettingsRounded'
-import EngineeringRoundedIcon from '@mui/icons-material/EngineeringRounded'
-import InputRoundedIcon from '@mui/icons-material/InputRounded';
-import LocalShippingRoundedIcon from '@mui/icons-material/LocalShippingRounded';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { useSnackbar } from 'notistack';
 import { MenuDTO } from 'logiflowerp-sdk'
 import { useState } from 'react';
 import { AboutDialog } from './AboutDialog';
-import Inventory2RoundedIcon from '@mui/icons-material/Inventory2Rounded';
-import Rotate90DegreesCcwRoundedIcon from '@mui/icons-material/Rotate90DegreesCcwRounded';
-import WidgetsRoundedIcon from '@mui/icons-material/WidgetsRounded';
+import DisplaySettingsIcon from '@mui/icons-material/DisplaySettings';
 
 // const secondaryListItems = [
 //     { text: 'Settings', icon: <SettingsRoundedIcon /> },
@@ -31,21 +19,8 @@ import WidgetsRoundedIcon from '@mui/icons-material/WidgetsRounded';
 // ]
 const iconMap: Record<string, React.ElementType> = {
     // User: PersonRounded,
-    Movement: TransformRounded,
-    'Product Group': CategoryRounded,
-    'Product Price': LocalOfferRounded,
-    Currency: MonetizationOnRounded,
-    'Unit Of Measure': ScaleRounded,
-    Store: LocalConvenienceStoreRounded,
-    'Root Company': BusinessRoundedIcon,
     Company: BusinessRoundedIcon,
-    Profile: AdminPanelSettingsRoundedIcon,
-    Personnel: EngineeringRoundedIcon,
-    'Warehouse Entry': InputRoundedIcon,
-    Product: WidgetsRoundedIcon,
-    'Warehouse Exit': LocalShippingRoundedIcon,
-    'Warehouse Return': Rotate90DegreesCcwRoundedIcon,
-    'Warehouse Stock': Inventory2RoundedIcon,
+    'Scraping Credential': DisplaySettingsIcon,
 }
 interface IProps {
     selectedNode: MenuDTO | null

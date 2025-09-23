@@ -4,6 +4,7 @@ import {
     companyApi,
     userApi,
     systemOptionApi,
+    scrapingCredentialApi,
 } from '@shared/api'
 import { authReducer } from './auth'
 
@@ -14,6 +15,7 @@ export const store = configureStore({
         [companyApi.reducerPath]: companyApi.reducer as Reducer,
         [userApi.reducerPath]: userApi.reducer as Reducer,
         [systemOptionApi.reducerPath]: systemOptionApi.reducer as Reducer,
+        [scrapingCredentialApi.reducerPath]: scrapingCredentialApi.reducer as Reducer,
     },
     middleware: (getDefaultMiddleware) =>
         getDefaultMiddleware({ serializableCheck: false })
@@ -21,6 +23,7 @@ export const store = configureStore({
             .concat(companyApi.middleware)
             .concat(userApi.middleware)
             .concat(systemOptionApi.middleware)
+            .concat(scrapingCredentialApi.middleware)
 })
 
 export type RootState = ReturnType<typeof store.getState>
